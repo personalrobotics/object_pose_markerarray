@@ -1,0 +1,15 @@
+<package>
+  <description brief="object_pose_apriltags">
+
+     object_pose_apriltags
+
+  </description>
+  <author>Shushman Choudhury</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/object_pose_apriltags</url>
+  <!--depend package="extrinsics_calib"/-->
+
+</package>
+
+
