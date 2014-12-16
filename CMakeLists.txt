@@ -10,7 +10,7 @@
 # - rosbuild.cmake : the CMakeLists used for ROS rosbuild builds
 #
 cmake_minimum_required(VERSION 2.8.3)
-project(object_pose_apriltags)
+project(object_pose_markerarray)
 
 if (DEFINED CATKIN_TOPLEVEL OR (NOT ("$ENV{ROS_DISTRO}" STREQUAL "fuerte")))
     include(${PROJECT_SOURCE_DIR}/catkin.cmake)

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>object_pose_markerarray</name>
+  <version>0.0.2</version>
+  <description>
+    Converts one marker array to another with a transform offset from
+    a lookup table.  Useful for things like apriltags where you need to
+    map from one frame (the tag location) to another (the center of the
+    object).
+  </description>
+  <url type="repository">
+    https://github.com/personalrobotics/object_pose_markerarray
+  </url>
+  <maintainer email="awalsman@andrew.cmu.edu">Aaron Walsman</maintainer>
+  <author email="awalsman@andrew.cmu.edu">Aaron Walsman</author>
+  <author email="pkv@cs.cmu.edu">Pras Velagapudi</author>
+  <license>UNRELEASED</license>
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
