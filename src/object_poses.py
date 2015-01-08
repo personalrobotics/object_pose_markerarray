@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-PACKAGE = 'object_pose_apriltags'
+PACKAGE = 'object_pose_markerarray'
 #import roslib; roslib.load_manifest(PACKAGE)
 import numpy, rospy, rospkg, copy, yaml, json
 from visualization_msgs.msg import Marker, MarkerArray
@@ -17,7 +17,8 @@ def get_fixed_tag_positions():
     tag_to_obj = {}
 
     for obj in object_list:
-        filepath = rrospack.get_path(PACKAGE)+'/config/'+obj+'.config.json'
+        filepath = rospack.get_path(PACKAGE)+'/config/'+obj+'.config.json'
+        print filepath
         object_tag_data = json.load(open(filepath))
         obj_to_tags[obj] = {}
         
@@ -25,6 +26,7 @@ def get_fixed_tag_positions():
             tag=int(tag_str[3:])
             tag_to_obj[tag] = obj
             obj_to_tags[obj][tag] = numpy.matrix(object_tag_data[tag_str])
+        
 
     return obj_to_tags,tag_to_obj
 
@@ -109,7 +111,7 @@ obj_to_tags,tag_to_obj = get_fixed_tag_positions()
 obj_pose_pub = rospy.Publisher('object_poses_array', MarkerArray)
 
 #THIS CURRENTLY SUBSCRIBES TO THE OUTPUT OF THE TRACKER - YOU CAN MAKE IT DIRECTLY SUBSCRIBE TO APRILTAGS IF YOU WANT
-sub_topic = rospy.get_param('~marker_array','/apriltags_kinect2/marker_array')
+sub_topic = rospy.get_param('~marker_array','/apriltags/marker_array')
 marker_sub = rospy.Subscriber(sub_topic,MarkerArray,publish_object_poses)
 rospy.spin()
 
